@@ -2,6 +2,13 @@
     <button @click="data.Toggle()">Test</button>
     <button :class='"color-" + data.Colors[data.i]' @click="data.ToggleColor()">Color</button>
     <div vg-if="data.Show">I am here!</div>
+    <div>
+        <ul>
+            <my-line file-name="xxx.txt" :line-number="1" />
+            <my-line file-name="RRR.txt" :line-number="2" />
+            <my-line file-name="uuu.txt" :line-number="3" />
+        </ul>
+    </div>
 </div>
 
 <style>
@@ -11,26 +18,3 @@
 .color-green { background: green; }
 </style>
 
-<script type="application/x-go">
-type RootData struct {
-    Show bool
-    Colors []string
-    i int
-}
-
-func (c *Root) NewData(props vugu.Props) (interface{}, error) {
-    fmt.Println("in NewData")
-    return &RootData{
-        Colors: []string{"red", "blue", "green"},
-    }, nil
-}
-
-func (d *RootData) Toggle() {
-    d.Show = !d.Show
-}
-
-func (d *RootData) ToggleColor() {
-    d.i++
-    d.i = d.i % 3//len(d.Colors)
-}
-</script>
