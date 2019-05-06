@@ -1,0 +1,3 @@
+<li class="my-line">
+    <strong vg-html='data.FileName'></strong>:<span vg-html='data.LineNumber'></span>
+</li>
