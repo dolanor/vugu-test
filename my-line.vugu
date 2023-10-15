@@ -1,3 +1,17 @@
 <li class="my-line">
     <strong vg-html='data.FileName'></strong>:<span vg-html='data.LineNumber'></span>
 </li>
+
+<script type="application/x-go">
+type MyLineData struct {
+	FileName   string
+	LineNumber int
+}
+
+func (*MyLine) NewData(props vugu.Props) (interface{}, error) {
+	return &MyLineData{
+		FileName:   props["file-name"].(string),
+		LineNumber: props["line-number"].(int),
+	}, nil
+}
+</script>

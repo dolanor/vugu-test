@@ -4,9 +4,7 @@
     <div vg-if="data.Show">I am here!</div>
     <div>
         <ul>
-            <my-line file-name="xxx.txt" :line-number="1" />
-            <my-line file-name="RRR.txt" :line-number="2" />
-            <my-line file-name="uuu.txt" :line-number="3" />
+            <my-line vg-for="i := 0; i < 3; i++" :file-name='"xxx-" + strconv.Itoa(i) + ".txt"' :line-number="i" />
         </ul>
     </div>
 </div>
@@ -18,3 +16,6 @@
 .color-green { background: green; }
 </style>
 
+<script type="application/x-go">
+import "strconv"
+</script>
